@@ -12,3 +12,7 @@ P1_Poon_Timothy_StringCraft - A console game where players swap indices to creat
 Each letter is worth 1 point by default.
 A letter is worth 2 more points than the previous letter if they are equal.
 A letter is worth 1 more point than the previous letter if the ASCII value is subsequent.
+
+P1_Poon_Timothy_Layout - A basic game using JavaFX where users try to manage an animal's stats.
+
+SpiderSolitaire - A console implementation of Spider Solitaire.
