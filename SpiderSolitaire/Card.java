@@ -1,8 +1,3 @@
-/**
- * Card.java
- *
- * <code>Card</code> represents a basic playing card.
- */
 public class Card implements Comparable<Card>
 {
     /** String value that holds the symbol of the card.
