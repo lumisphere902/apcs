@@ -7,23 +7,6 @@ public class Board
 	private Deck[] stacks;
 	private ArrayList<Card> completed;
 
-	/**
-	 *  Sets up the Board and fills the stacks and draw pile from a Deck
-	 *  consisting of numDecks Decks.  The number of Cards in a Deck
-	 *  depends on the number of suits. Here are examples:
-	 *  
-	 *  # suits     # numDecks      #cards in overall Deck
-	 *      1            1          13 (all same suit)
-	 *      1            2          26 (all same suit)
-	 *      2            1          26 (one of each suit)
-	 *      2            2          52 (two of each suit)
-	 *      4            2          104 (two of each suit)
-	 *      
-	 *  Once the overall Deck is built, it is shuffled and half the cards
-	 *  are placed as evenly as possible into the stacks.  The other half
-	 *  of the cards remain in the draw pile.  If you'd like to specify
-	 *  more than one suit, feel free to add to the parameter list.
-	 */    
 	public Board(int numStacks, int numDecks, int numSuits) {
 		drawpile = new Deck();
 		stacks = new Deck[numStacks];
@@ -50,18 +33,12 @@ public class Board
 		}
 	}
 
-	/**
-	 *  Moves a run of cards from src to dest (if possible) and flips the
-	 *  next card if one is available.  Change the parameter list to match
-	 *  your implementation of Card if you need to.
-	 */
 	public void makeMove(String symbol, int src, int dest) {
 		if (symbol == "X") {
 			System.out.println("INVALID MOVE: Card is face down");
 			return;
 		}
 		for (int i = stacks[src].size() - 1; i >= 0; i--) {
-			//System.out.println(stacks[src].getDeck().get(i).getSymbol() + ", " + symbol);
 			if (stacks[src].getDeck().get(i).getSymbol().equals(symbol)) {
 				if (dest < 0 || dest >= stacks.length || src < 0 || src >= stacks.length) {
 					System.out.println("INVALID INPUT");
@@ -95,10 +72,7 @@ public class Board
 		}
 		return true;
 	}
-
-	/** 
-	 *  Moves one card onto each stack, or as many as are available
-	 */
+	
 	public void drawCards() {
 		for (int i = 0; i < stacks.length; i++) {
 			if (drawpile.isEmpty()) {
